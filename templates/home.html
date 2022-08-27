@@ -1,12 +1,41 @@
 {% extends 'base.html' %}
-
+{% load static %}
 {% block title %}Home{% endblock %}
 
 {% block content %}
-{% if user.is_authenticated %}
-  Hi {{ user.username }}!
-{% else %}
-  <p>You are not logged in</p>
-  <a href="{% url 'login' %}">Log In</a>
-{% endif %}
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Successfully</title>
+    <link href="{% static 'style.css' %}"
+    rel="stylesheet">    
+    <script src="https://kit.fontawesome.com/1a38de60ea.js" crossorigin="anonymous"></script>
+</head>
+<body>
+
+    <div class="center">
+        <i class="fa-regular fa-circle-check fa-4x"  ></i>
+        {% if user.is_authenticated %}
+
+        <h1>Welcome {{ user.username}}!</h1>
+        <p>You have successfully signed your account. You can continue your enjoy.</p>
+
+
+        {% else %}
+        <p>You are not logged in</p>
+          <button class="btn"><a href="{% url 'login' %}"> Login </a></button>
+        {% endif %}
+
+    </div>
+
+
+    
+</body>
+
+
+
 {% endblock %}
+</html>
