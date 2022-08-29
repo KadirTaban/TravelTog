@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from home.models import Journey
+from home.models import Journey, Traveller
 
 # Register your models here.
 class JourneyAdmin(admin.ModelAdmin):
@@ -8,3 +8,4 @@ class JourneyAdmin(admin.ModelAdmin):
 
 
 admin.site.register(Journey, JourneyAdmin)
+admin.site.register(Traveller)
