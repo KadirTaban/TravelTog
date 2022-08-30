@@ -10,14 +10,12 @@
 <section>
     <h2> JourNews! </h2>
     {% for journey in journeys %}
-
     <ol>
         <li>
             <article>
                 <div class="post-summary">
                     <div class="post-image">
-                        <img src="{% static 'home/images/postFirst.jpg' %}" alt="title">
-                        
+                        <img src="{{journey.highlighted_image}}" alt="{{journey.title}}">
                     </div>
                     <div class="post-details">
                         <h3>{{journey.title}}</h3>
@@ -26,7 +24,6 @@
                 </div>
                 <div class="post-actions">
                     <a href="post-detail.html" class="btn"> More Details</a>
-        
                 </div>
             </article>
         </li>
