@@ -1,10 +1,12 @@
-from cgitb import reset
+from urllib import request
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework.exceptions import AuthenticationFailed
 from .serializers import UserSerializer
 from .models import User
 import jwt, datetime
+from django.shortcuts import render
+
 # Create your views here.
 
 class RegisterView(APIView):
@@ -13,6 +15,7 @@ class RegisterView(APIView):
         serializer.is_valid(raise_exception=True)
         serializer.save()
         return Response(serializer.data)
+
 
 
 class LoginView(APIView):
@@ -31,7 +34,7 @@ class LoginView(APIView):
         payload = {
             'id': user.id,
             'exp': datetime.datetime.utcnow() + datetime.timedelta(minutes=60),
-            'iat': datetime.datetime.utcnow()
+            'iat': datetime.datetime.utcnow(),
         }
 
         token = jwt.encode(payload, 'secret', algorithm='HS256').decode('utf-8')

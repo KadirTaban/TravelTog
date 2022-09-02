@@ -93,6 +93,8 @@ DATABASES = {
 }
 
 AUTH_USER_MODEL = "users.User"
+HOP_GUEST_IS_ACTIVE_USER = True
+SILENCED_SYSTEM_CHECKS = ['auth.W004']
 
 # Password validation
 # https://docs.djangoproject.com/en/4.0/ref/settings/#auth-password-validators
@@ -141,8 +143,8 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
-MEDIA_ROOT = BASE_DIR / 'uploads'
-MEDIA_URL = '/files/'
+MEDIA_ROOT = BASE_DIR / '/uploads/'
+MEDIA_URL = '/uploads/'
 
 CORS_ORIGIN_ALLOW_ALL=True
 CORS_ALLOW_CREDENTIALS=True

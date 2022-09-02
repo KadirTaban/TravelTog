@@ -12,7 +12,7 @@ class Traveller(models.Model):
     
 class Journey(models.Model):
     id=models.IntegerField(primary_key=True)
-    travellers= models.ManyToManyField(Traveller, blank=True, null=True)
+    username= models.CharField(max_length=233, blank=True, null=True)
     title = models.CharField(max_length=100)
     description = models.CharField(max_length=500)
     location = models.CharField(max_length=55)
