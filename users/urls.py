@@ -1,6 +1,5 @@
-import imp
 from django.urls import path,include
-from .views import LogoutView, RegisterView,LoginView, UserView
+from .views import LogoutView, RegisterView,LoginView,UserView
 
 urlpatterns = [
     path('register', RegisterView.as_view()),

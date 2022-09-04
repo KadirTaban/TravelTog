@@ -12,9 +12,9 @@
 <body style="background-color:tomato;">
     <div class="center" >
         <h1>Login</h1>
-        <form method="post">
-          {% csrf_token %}
-          {{ form.as_p }}  
+        <form method=POST>
+            {% csrf_token %}
+            {{ form.as_p }}
             <div class="pass">Forgot Password?</div>
             <input type="submit" value="Login">
             <div class="signup_btn">
