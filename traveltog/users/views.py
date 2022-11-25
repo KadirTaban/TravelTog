@@ -2,8 +2,8 @@ from django.shortcuts import redirect, render
 from django.contrib.auth.forms import UserCreationForm
 from django.urls import is_valid_path
 from .forms import SignUpForm,UserUpdateForm,ProfileUpdateForm
+from django.contrib.auth.decorators import login_required
 # Create your views here.
-
 def sign_up(request):
     if request.method == 'POST':
         form = SignUpForm(request.POST)
@@ -17,7 +17,7 @@ def sign_up(request):
     }
     return render(request, 'users/sign_up.html', context)
 
-
+@login_required
 def profile(request):
     if request.method == 'POST':
         u_form = UserUpdateForm(request.POST or None, instance=request.user)
