@@ -13,14 +13,18 @@ def index(request):
         if form.is_valid():
             instance = form.save(commit=False)
             instance.author = request.user
+            instance.image=request.FILES['image']
+            instance.image_2=request.FILES['image_2']
+            instance.image_3=request.FILES['image_3']
             instance.save()
             return redirect('blog-index')
     else:
-        form = PostModelForm()
+        form = PostModelForm(request.POST or None, request.FILES or None)
 
     context = {
         'posts': posts,
-        'form': form
+        'form': form,
+        
     } 
     return render(request, 'blog/index.html', context)
 
