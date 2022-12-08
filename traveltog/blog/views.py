@@ -9,7 +9,7 @@ from django.contrib.auth.decorators import login_required
 def index(request):
     posts = PostModel.objects.all()
     if request.method ==  'POST':
-        form = PostModelForm(request.POST)
+        form = PostModelForm(request.POST or None, request.FILES or None)
         if form.is_valid():
             instance = form.save(commit=False)
             instance.author = request.user
@@ -19,7 +19,7 @@ def index(request):
             instance.save()
             return redirect('blog-index')
     else:
-        form = PostModelForm(request.POST or None, request.FILES or None)
+        form = PostModelForm()
 
     context = {
         'posts': posts,
