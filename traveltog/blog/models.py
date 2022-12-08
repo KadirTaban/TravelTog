@@ -1,6 +1,7 @@
 import re
 from unittest.util import _MAX_LENGTH
 from django.db import models
+from django.core.validators import FileExtensionValidator
 from django.contrib.auth.models import User 
 # Create your models here.
 
@@ -8,8 +9,11 @@ class PostModel(models.Model):
     title = models.CharField(max_length=100)
     content = models.TextField()
     author = models.ForeignKey(User, on_delete=models.CASCADE)
-    date_create = models.DateTimeField(auto_now_add=True)
-    
+    date_create = models.DateTimeField(auto_now_add=True)    
+    image = models.ImageField(upload_to='images/', default ='default.jpg', null=True, validators=[FileExtensionValidator( ['jpg','png','jpeg'])])   
+    image_2 = models.ImageField(upload_to='images/', default ='default.jpg', null=True) 
+    image_3 = models.ImageField(upload_to='images/', default ='default.jpg', null=True)   
+  
     class Meta:
         ordering = ('-date_create', )
 
