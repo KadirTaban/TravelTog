@@ -4,9 +4,13 @@ Your travel repos inside profile.
 
 
 #Tech Stack
+
 *Django
+
 *Html
+
 *Bootstrap
+
 *PostgreSql
 
 Quick Actions
