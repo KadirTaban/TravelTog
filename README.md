@@ -14,7 +14,8 @@ Your travel repos inside profile.
 
 *PostgreSql
 
-Quick Actions
+# Quick Actions
+
 <a href="https://youtu.be/QEN4lR_tItA" target="_blank">
  <img src="https://i.ytimg.com/an_webp/QEN4lR_tItA/mqdefault_6s.webp?du=3000&sqp=CMD6gZ4G&rs=AOn4CLBKAfpwXUeQCBlMqJPxvXeWjICsUg" alt="Watch the video" width="400" />
 </a>
